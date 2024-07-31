@@ -39,10 +39,16 @@ const Imange = styled('img')({
 
     });
 
+const signupInitialValues = {
+    username : '',
+    emailId : '',
+    password:''
 
+}
 
 const Login =() => {
     const [account , toggleAcoount]= useState('login');
+    const [signup, setSignup] = useState(signupInitialValues);
 
     const toggleSignup = () =>
     {
@@ -50,7 +56,7 @@ const Login =() => {
     }
 
     const onInputChange = (e) =>{
-        console.log(e.target.name,e.target.value);
+        setSignup({...SignupButton,[e.target.name]: e.target.value}); //key : value
     }
     return (
         <Component>
