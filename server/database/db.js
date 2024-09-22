@@ -5,7 +5,7 @@ import mongoose from "mongoose";
     const URL =`mongodb+srv://${USERNAME}:${PASSWORD}@blog-web.63lam.mongodb.net/?retryWrites=true&w=majority&appName=blog-web`;
     try{
         await mongoose.connect(URL);
-        console.log("Database connected successfully"); //if database connected
+        console.log("Database connected successfully!"); //if database connected
     }catch (error){
        console.log("Error while connecting with database",error);//if not then
     }
