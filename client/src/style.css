@@ -1,0 +1,16 @@
+.textField{
+    margin-bottom: 20px;
+    margin: 10px 0 ;
+    width: 100% ;
+}
+
+.textField input {
+    padding:14px ;
+    border-radius:6px ;
+    transition: border-color 0.35;
+}
+
+.textField input:focus {
+    border-color: #d5e3f1; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
