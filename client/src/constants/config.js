@@ -17,6 +17,7 @@ export const API_NOTIFICATION_MESSAGES = {
     title:'Error',
     message:'Unable to connect with server. Please check internet connectivity and try again later'
   },
+  
   // validationError: {
   //   title: 'Validation Error',
   //   message: 'Please ensure all required fields are filled out correctly.'
@@ -31,6 +32,15 @@ export const API_NOTIFICATION_MESSAGES = {
 //NEED SERVICE CALL:{URL '/', METHOD: 'POST/GET/PUT/DELETE',PARAMS:TRUE/FLASE , QUERY:TURE/FLASE}
 
 export const SERVICE_URLS ={
-    userSignup:{url: '/signup' , method:'POST'},
-    userLogin : {url: '/login' ,method:'POST'}
+    userSignup : {url: '/signup' , method:'POST'},
+    userLogin : {url: '/login' ,method:  'POST'},
+    uploadFile : {url: '/file' , method: 'POST'},
+    createPost : {url: 'create', method: 'POST'},
+
+    getAllPosts : { url:'/posts', method:'GET' , params: true},
+    getPostById : {url:'post', method:'GET', query: true},
+
+    updatePost: { url: 'update', method:'PUT',query : true},
+
+    deletePost: {url:'delete', method:'DELETE' ,query : true}
 }

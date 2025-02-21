@@ -1,0 +1,60 @@
+
+
+.banner {
+    background-image: url('C:\Users\ASUS\OneDrive\Desktop\programing\7CE_MP_078_CODE_BMS\client\src\components\banner\art.jpg');
+    background-size: cover;     
+    background-position: center;
+    background-repeat: no-repeat; 
+    width: 99vw; 
+    height: 40vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* To hide overflow content */
+    margin: 20px auto;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-50px); /* Start above the screen */
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+    
+    
+  }
+
+
+  .banner-animation {
+    opacity: 1;
+    transform: translateY(0); /* Slide down */
+    transition: opacity 1.5s ease, transform 1.5s ease; /* Smooth transition */
+  }
+
+  .fade-in {
+    opacity: 1;
+  }
+  
+  .fade-out {
+    opacity: 0;
+  }
+  
+  .quote {
+    color: white; /* Text color */
+    font-size: x-large; /* Adjust to your preference */
+    font-family: cursive;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); 
+    padding: 20px;
+    border-radius:5px;
+    font-weight: bold;
+    transition: opacity 1.5s ease-in-out;
+   
+
+    
+}
+.author {
+    font-size: 1rem;
+    font-style: italic;
+    margin-top: 10px;
+    color:rgb(180, 253, 229);
+}
+
+
+  

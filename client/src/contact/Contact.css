@@ -1,0 +1,166 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc; /* Light cool background */
+    color: #333; /* Dark text for contrast */
+}
+
+#contact {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* Ensure it covers the viewport */
+}
+
+
+.contact-banner {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-banner h2 {
+    font-size: 2.5rem;
+    color: #4a90e2; /* Cool blue for a professional vibe */
+    margin: 0;
+    animation: fadeIn 1.5s ease-in-out;
+    letter-spacing: 2px; /* Adds elegance */
+}
+
+.form-container {
+    max-width: 500px;
+    width: 90%; /* Responsive width for smaller screens */
+    padding: 30px;
+    background: linear-gradient(145deg, #ffffff, #e6f3ff); /* Subtle gradient background */
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1), 0 0 15px rgba(106, 160, 205, 0.4); /* Polished shadow */
+    animation: slideUp 0.8s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.form-container:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15), 0 0 20px rgba(106, 160, 205, 0.5); /* Enhanced shadow */
+    background: linear-gradient(145deg, #e6f3ff, #ffffff); /* Reverse gradient for a cool effect */
+}
+
+
+form div {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #2c3e50; /* Darker blue for contrast */
+}
+
+input, 
+textarea {
+    font-size: 1rem;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    background-color: #f9f9f9; /* Soft gray for input background */
+    transition: all 0.3s ease;
+}
+
+input:focus, 
+textarea:focus {
+    border-color: #4a90e2; /* Cool blue on focus */
+    box-shadow: 0 0 10px rgba(74, 144, 226, 0.5); /* Glow effect */
+    background-color: #ffffff; /* Highlights input field */
+}
+
+textarea {
+    height: 150px; /* Keeps textarea size consistent */
+    resize: none; /* Prevents resizing */
+}
+
+textarea:focus {
+    height: 180px; /* Slightly expands height on focus for better UX */
+}
+
+.button-container {
+    padding-left:200px ;
+    padding-right:200px ;
+    margin-top: 20px; 
+    display: flex; /* Flex container to align the button */
+    justify-content: center; /* Center the button horizontally */
+}
+
+button[type="submit"] {
+    background-color: #f10797;
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 8px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.3s; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+button:hover {
+    background-color: #5a23da; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #555; /* Neutral text color */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 15px;
+    }
+
+    .banner h2 {
+        font-size: 2rem;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    input, 
+    textarea {
+        font-size: 0.9rem;
+    }
+
+    .button {
+        font-size: 0.9rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

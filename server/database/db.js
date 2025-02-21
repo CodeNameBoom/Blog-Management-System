@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+mongoose.set('strictQuery', false);
 
  const Connection =async(USERNAME,PASSWORD)=> { //username , password are not meant to be disclosed !
     const URL =`mongodb+srv://${USERNAME}:${PASSWORD}@blog-web.63lam.mongodb.net/?retryWrites=true&w=majority&appName=blog-web`;

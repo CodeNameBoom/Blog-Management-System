@@ -1,0 +1,63 @@
+
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%); /* Start off-screen */
+    opacity: 0; /* Hidden */
+  }
+  to {
+    transform: translateX(0); /* Slide into place */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+.categories-container {
+    background-color: #f5f0e1;  /* Light background color */
+    border-radius: 8px;  /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(177, 84, 84, 0.1);  /* Soft shadow */
+    margin: 20px;  /* Margin around the container */
+    opacity: 0;  /* Initially hidden */
+    transform: translateX(-100%);  /* Initially off-screen to the left */
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out; /* Smooth transition for both properties */
+}
+
+.categories-container.slide-in {
+    opacity: 1;  /* Fully visible */
+    transform: translateX(0);  /* Slide into place */
+}
+
+
+.categories-title {
+    font-weight: bold;
+    color: #7e3e0a;  /* Darker color for the title */
+    font-size: 1.5rem;  /* Larger font size */
+    padding: 5px 0;
+    border-radius: 5px;   
+}
+
+.search-input {
+    border-radius: 5px;  /* Rounded corners */
+    background-color: rgb(246, 254, 255);  /* White background */    
+}
+
+.MuiListItem-root.category-item {
+    transition: background-color 0.3s;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+.MuiListItem-root.category-item:hover {
+    background-color: rgba(179, 36, 17, 0.1);
+}
+
+@media (max-width: 600px) {
+    .categories-container {
+        padding: 15px;  /* Less padding on small screens */
+        margin: 10px;  /* Less margin */
+    }
+
+    .categories-title {
+        font-size: 1.2rem;  /* Smaller font size */
+    }
+}

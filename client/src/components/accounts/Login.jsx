@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
 import {Box,TextField,Button,styled, Typography} from '@mui/material';
 import { API } from '../../service/api.js'
+import { useData } from '../../context/DataProvider.jsx';
+import './Login.css';
+
+import { useNavigate } from 'react-router-dom';
 
 import '../../style.css';
 
+
+
+
+
 const Component = styled(Box)`
- WIDTH : 400PX;
+ width : 400px;
  margin : auto;
 box-shadow : 5px 2px 5px 2px rgb(0 0 0/ 0.6);
 `;
@@ -43,7 +51,7 @@ const Image = styled('img')({
     });
     const Error = styled(Typography)`
     font-size: 11px;
-    color: #ff6161;
+    color: #c52e2e;
     line-height: 1;
     margin-top: 10px;
     font-weight: 700;
@@ -53,19 +61,23 @@ const Image = styled('img')({
         password:''
     };
 
-const signupInitialValues = {
-    username: '',
-    email: '',
-    password: '',
+ const signupInitialValues = {
+        username: '',
+        email: '',
+        password: '',
 
-};
+    };
 
 
-const Login =() => {
+const Login =({isUserAuthenticated}) => {
     const [account , toggleAccount]= useState('login');
     const [signup, setSignup] = useState(signupInitialValues);
     const [login, setLogin] = useState(loginInitialValues);
     const[error, setError] = useState('');
+
+    const { setAccount} = useData();
+    
+    const navigate = useNavigate();
 
     const toggleSignup = () =>
     {
@@ -112,7 +124,14 @@ const Login =() => {
             
             if (response.isSuccess) {
                 setError(''); // Clear any previous error
-                // Handle successful login (e.g., redirect or update state)
+                sessionStorage.setItem('accessToken',`Bearer ${response.data.accessToken}`);
+                sessionStorage.setItem('refreshToken', `Bearer${response.data.refreshToken}`);
+
+                setAccount({ username: response.data.username, email: response.data.email});
+
+                isUserAuthenticated(true);
+
+                navigate('/');
             } else {
                 // Set error message based on API response
                 setError(response.msg || 'Woops! Something went wrong.');
@@ -120,7 +139,6 @@ const Login =() => {
         } catch (error) {
             console.error("Error during login:", error);
             
-            // Log the full error object to see its structure
             const errorMessage = error.response?.data?.message || error.message || 'Woops! Something went wrong.';
             setError(errorMessage);
         }
@@ -128,13 +146,12 @@ const Login =() => {
       
 
     return (
-        <Component>
+        <Component className="login-container">
             <Box>
                 <Image src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS62PVN-BibYo0ra1gRjl8OOCDbESMRX5Tmjg&s" alt="Login"/>
                 {
                     account === 'login'?
 
-                
                 <Wrapper>
                     <TextField 
                         id="login-username" 
@@ -154,8 +171,7 @@ const Login =() => {
                         name='password' 
                         label='Password'
                         variant="standard" 
-                        type="password" 
-                        autoComplete="current-password"
+                        type="password"
 
                          />
                     <br></br>
@@ -164,7 +180,7 @@ const Login =() => {
                     <br></br>
 
                     <LoginButton variant="contained" onClick={loginUser }> Login</LoginButton>
-                    <Text style={{textAlign: 'centers'}}>OR</Text>
+                    <Text style={{textAlign: 'centers', color: '#000'}}>OR</Text>
                     <SignupButton onClick={() => toggleSignup()}>Create Account</SignupButton>
                     
                 </Wrapper>  
@@ -200,7 +216,6 @@ const Login =() => {
                         label="Password" 
                         variant="outlined" 
                         type="password" 
-                        autoComplete="new-password" 
                         className="textField"
 
                         />
@@ -210,7 +225,7 @@ const Login =() => {
                     {error &&<Error>{error}</Error>}
                     <br></br>
                     <SignupButton variant="outlined"onClick={() => signupUser()}>SignUp</SignupButton>
-                    <Text style={{textAlign: 'center'}}>OR</Text>
+                    <Text style={{textAlign: 'center', color:'#000'}}>OR</Text>
                     <LoginButton variant="contained"onClick={()=> toggleSignup()}> Already have an account</LoginButton>
                 
                 </Wrapper>
